@@ -107,7 +107,8 @@ input[type="text"] {
 }
 
 .single-meal-info {
-    
+    margin: 20px;
+    padding: 10px
 }
 
 @media (max-width: 800px) {
