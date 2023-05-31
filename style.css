@@ -93,15 +93,32 @@ input[type="text"] {
     opacity: 1;
 }
 
-@media(max-width: 800px) {
+.single-meal {
+    margin: 30px auto;
+    width: 70%;
+}
+
+.single-meal img {
+    margin: 15px;
+    width: 300px;
+    border: 4px #fff solid;
+    border-radius: 2px;
 
 }
 
-@media(max-width: 700px) {
+.single-meal-info {
     
 }
 
-@media(max-width: 500px) {
+@media (max-width: 800px) {
+
+}
+
+@media (max-width: 700px) {
+    
+}
+
+@media (max-width: 500px) {
     input[type="text"] {
         width: 100%;
     }
