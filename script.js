@@ -18,14 +18,14 @@ function searchMeal(e) {
     // console.log(term);
 
     // Check for empty box
-    if(term.trim()) {
+    if (term.trim()) {
         fetch(`www.themealdb.com/api/json/v1/1/search.php?s=${term}`)
         .then(res => res.json())
         .then(data => {
             // console.log(data);
             resultHeading.innerHTML = `<h2>Search results for '${term}':</h2>`;
         
-            if(data.meals === null) {
+            if (data.meals === null) {
                 resultHeading.innerHTML = `<p>There are no search results. Try again!<p>`;
             } else {
                 mealsEl.innerHTML = data.meals
@@ -65,8 +65,8 @@ function getMealById(mealID) {
 function addMealToDOM(meal) {
      const ingredients = [];
 
-     for(let i = 1; i <= 20; i++) {
-        if(meal[`strIngredient${i}`]) {
+     for (let i = 1; i <= 20; i++) {
+        if (meal[`strIngredient${i}`]) {
             ingredients.push(`${meal[`strIngredients${i}`]} - ${meal[`strMeasures${i}`]}`);
         } else {
             break;
@@ -75,7 +75,7 @@ function addMealToDOM(meal) {
      single_mealEl.innerHTML = `
         <div class = "single-meal">
             <h1>${meal.strMeal}</h1>
-            <img src="${meal.stMealThumb}" alt="${meal.strMeal}" />
+            <img src="${meal.strMealThumb}" alt="${meal.strMeal}" />
             <div class="single-meal-info">
                 ${meal.strCategory ? `<p>${meal.strCategory}</p>` : ''}
                 ${meal.strArea ? `<p>${meal.strArea}</p>` : ''}
