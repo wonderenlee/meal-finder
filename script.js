@@ -19,7 +19,7 @@ function searchMeal(e) {
 
     // Check for empty box
     if (term.trim()) {
-        fetch(`www.themealdb.com/api/json/v1/1/search.php?s=${term}`)
+        fetch(`https://www.themealdb.com/api/json/v1/1/search.php?s=${term}`)
         .then(res => res.json())
         .then(data => {
             console.log(data);
@@ -61,7 +61,7 @@ function getMealById(mealID) {
 }
 
 // Fetch random meal from API
-function getRandomMealById() {
+function getRandomMeal() {
     // Clear meals and heading
     mealsEl.innerHTML = '';
     resultHeading.innerHTML = '';
@@ -81,14 +81,14 @@ function addMealToDOM(meal) {
 
      for (let i = 1; i <= 20; i++) {
         if (meal[`strIngredient${i}`]) {
-            ingredients.push(`${meal[`strIngredients${i}`]} - ${meal[`strMeasures${i}`]}`
+            ingredients.push(`${meal[`strIngredients${i}`]} - ${meal[`strMeasure${i}`]}`
             );
         } else {
             break;
         }
      }
      single_mealEl.innerHTML = `
-        <div class = "single-meal">
+        <div class="single-meal">
             <h1>${meal.strMeal}</h1>
             <img src="${meal.strMealThumb}" alt="${meal.strMeal}" />
             <div class="single-meal-info">
@@ -108,9 +108,9 @@ function addMealToDOM(meal) {
 
 // Event listeners
 submit.addEventListener('submit', searchMeal);
-random.addEventListener('random', searchMeal);
+random.addEventListener('click', getRandomMeal);
 
-mealsEl.addEventListener('click', e=> {
+mealsEl.addEventListener('click', e => {
     const mealInfo = e.path.find(item => {
         if (item.classList) {
             return item.classList.contains('meal-info');
