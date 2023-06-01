@@ -75,6 +75,7 @@ function getRandomMeal() {
         });
 }
 
+// TODO Troubleshoot single meal
 // Add meal to DOM
 function addMealToDOM(meal) {
      const ingredients = [];
